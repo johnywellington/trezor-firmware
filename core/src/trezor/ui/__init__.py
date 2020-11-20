@@ -238,6 +238,9 @@ class Component:
     an instance of `Result`.
     """
 
+    def __init__(self) -> None:
+        self.repaint = True
+
     def dispatch(self, event: int, x: int, y: int) -> None:
         if event is RENDER:
             self.on_render()
@@ -305,6 +308,9 @@ class Layout(Component):
 
     BACKLIGHT_LEVEL = style.BACKLIGHT_NORMAL
     RENDER_SLEEP = loop.sleep(_RENDER_DELAY_MS)  # type: loop.Syscall
+
+    def __init__(self) -> None:
+        super().__init__()
 
     async def __iter__(self) -> ResultValue:
         """

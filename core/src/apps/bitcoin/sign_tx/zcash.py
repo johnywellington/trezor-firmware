@@ -39,6 +39,7 @@ OVERWINTERED = const(0x80000000)
 
 class Zip243Hash(Hash143):
     def __init__(self) -> None:
+        super().__init__()
         self.h_prevouts = HashWriter(blake2b(outlen=32, personal=b"ZcashPrevoutHash"))
         self.h_sequence = HashWriter(blake2b(outlen=32, personal=b"ZcashSequencHash"))
         self.h_outputs = HashWriter(blake2b(outlen=32, personal=b"ZcashOutputsHash"))

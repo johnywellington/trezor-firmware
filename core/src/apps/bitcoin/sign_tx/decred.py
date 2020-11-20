@@ -36,6 +36,7 @@ if False:
 
 class DecredHash(Hash143):
     def __init__(self, h_prefix: HashWriter) -> None:
+        super().__init__()
         self.h_prefix = h_prefix
 
     def add_input(self, txi: TxInput) -> None:

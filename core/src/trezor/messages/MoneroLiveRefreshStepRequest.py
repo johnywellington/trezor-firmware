@@ -22,6 +22,7 @@ class MoneroLiveRefreshStepRequest(p.MessageType):
         sub_addr_major: int = None,
         sub_addr_minor: int = None,
     ) -> None:
+        super().__init__()
         self.out_key = out_key
         self.recv_deriv = recv_deriv
         self.real_out_idx = real_out_idx

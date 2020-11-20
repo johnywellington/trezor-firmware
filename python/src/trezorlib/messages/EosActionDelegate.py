@@ -23,6 +23,7 @@ class EosActionDelegate(p.MessageType):
         cpu_quantity: EosAsset = None,
         transfer: bool = None,
     ) -> None:
+        super().__init__()
         self.sender = sender
         self.receiver = receiver
         self.net_quantity = net_quantity

@@ -58,6 +58,7 @@ class Features(p.MessageType):
         display_rotation: int = None,
         experimental_features: bool = None,
     ) -> None:
+        super().__init__()
         self.capabilities = capabilities if capabilities is not None else []
         self.vendor = vendor
         self.major_version = major_version

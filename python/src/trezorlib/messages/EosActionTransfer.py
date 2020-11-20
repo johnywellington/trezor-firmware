@@ -22,6 +22,7 @@ class EosActionTransfer(p.MessageType):
         quantity: EosAsset = None,
         memo: str = None,
     ) -> None:
+        super().__init__()
         self.sender = sender
         self.receiver = receiver
         self.quantity = quantity

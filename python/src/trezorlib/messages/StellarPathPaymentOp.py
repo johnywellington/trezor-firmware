@@ -26,6 +26,7 @@ class StellarPathPaymentOp(p.MessageType):
         destination_asset: StellarAssetType = None,
         destination_amount: int = None,
     ) -> None:
+        super().__init__()
         self.paths = paths if paths is not None else []
         self.source_account = source_account
         self.send_asset = send_asset

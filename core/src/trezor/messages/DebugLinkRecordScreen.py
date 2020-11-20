@@ -18,6 +18,7 @@ class DebugLinkRecordScreen(p.MessageType):
         *,
         target_directory: str = None,
     ) -> None:
+        super().__init__()
         self.target_directory = target_directory
 
     @classmethod

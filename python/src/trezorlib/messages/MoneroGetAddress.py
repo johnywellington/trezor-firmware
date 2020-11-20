@@ -23,6 +23,7 @@ class MoneroGetAddress(p.MessageType):
         minor: int = None,
         payment_id: bytes = None,
     ) -> None:
+        super().__init__()
         self.address_n = address_n if address_n is not None else []
         self.show_display = show_display
         self.network_type = network_type

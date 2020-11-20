@@ -33,6 +33,7 @@ class TransactionType(p.MessageType):
         timestamp: int = None,
         branch_id: int = None,
     ) -> None:
+        super().__init__()
         self.inputs = inputs if inputs is not None else []
         self.bin_outputs = bin_outputs if bin_outputs is not None else []
         self.outputs = outputs if outputs is not None else []

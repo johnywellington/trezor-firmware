@@ -23,6 +23,7 @@ class MoneroTransactionInitRequest(p.MessageType):
         network_type: int = None,
         tsx_data: MoneroTransactionData = None,
     ) -> None:
+        super().__init__()
         self.address_n = address_n if address_n is not None else []
         self.version = version
         self.network_type = network_type

@@ -19,6 +19,7 @@ class StellarAssetType(p.MessageType):
         code: str = None,
         issuer: str = None,
     ) -> None:
+        super().__init__()
         self.type = type
         self.code = code
         self.issuer = issuer

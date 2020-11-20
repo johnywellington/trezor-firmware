@@ -28,6 +28,7 @@ class TezosTransactionOp(p.MessageType):
         parameters: bytes = None,
         parameters_manager: TezosParametersManager = None,
     ) -> None:
+        super().__init__()
         self.source = source
         self.fee = fee
         self.counter = counter

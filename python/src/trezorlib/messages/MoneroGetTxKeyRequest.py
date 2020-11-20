@@ -25,6 +25,7 @@ class MoneroGetTxKeyRequest(p.MessageType):
         reason: int = None,
         view_public_key: bytes = None,
     ) -> None:
+        super().__init__()
         self.address_n = address_n if address_n is not None else []
         self.network_type = network_type
         self.salt1 = salt1

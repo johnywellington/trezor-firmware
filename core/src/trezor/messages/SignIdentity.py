@@ -23,6 +23,7 @@ class SignIdentity(p.MessageType):
         challenge_visual: str = None,
         ecdsa_curve_name: str = None,
     ) -> None:
+        super().__init__()
         self.identity = identity
         self.challenge_hidden = challenge_hidden
         self.challenge_visual = challenge_visual

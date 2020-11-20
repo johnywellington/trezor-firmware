@@ -18,6 +18,7 @@ class EosAsset(p.MessageType):
         amount: int = None,
         symbol: int = None,
     ) -> None:
+        super().__init__()
         self.amount = amount
         self.symbol = symbol
 

@@ -27,6 +27,7 @@ class MoneroTransactionSignInputRequest(p.MessageType):
         spend_key: bytes = None,
         orig_idx: int = None,
     ) -> None:
+        super().__init__()
         self.src_entr = src_entr
         self.vini = vini
         self.vini_hmac = vini_hmac

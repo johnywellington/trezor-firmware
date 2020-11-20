@@ -18,6 +18,7 @@ class GetEntropy(p.MessageType):
         *,
         size: int,
     ) -> None:
+        super().__init__()
         self.size = size
 
     @classmethod

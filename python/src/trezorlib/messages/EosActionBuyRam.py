@@ -21,6 +21,7 @@ class EosActionBuyRam(p.MessageType):
         receiver: int = None,
         quantity: EosAsset = None,
     ) -> None:
+        super().__init__()
         self.payer = payer
         self.receiver = receiver
         self.quantity = quantity

@@ -18,6 +18,7 @@ class EosActionUnknown(p.MessageType):
         data_size: int = None,
         data_chunk: bytes = None,
     ) -> None:
+        super().__init__()
         self.data_size = data_size
         self.data_chunk = data_chunk
 

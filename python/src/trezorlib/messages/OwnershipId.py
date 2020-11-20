@@ -18,6 +18,7 @@ class OwnershipId(p.MessageType):
         *,
         ownership_id: bytes,
     ) -> None:
+        super().__init__()
         self.ownership_id = ownership_id
 
     @classmethod

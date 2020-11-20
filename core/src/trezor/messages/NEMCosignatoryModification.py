@@ -19,6 +19,7 @@ class NEMCosignatoryModification(p.MessageType):
         type: EnumTypeNEMModificationType = None,
         public_key: bytes = None,
     ) -> None:
+        super().__init__()
         self.type = type
         self.public_key = public_key
 

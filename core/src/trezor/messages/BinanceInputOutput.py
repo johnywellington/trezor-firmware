@@ -20,6 +20,7 @@ class BinanceInputOutput(p.MessageType):
         coins: List[BinanceCoin] = None,
         address: str = None,
     ) -> None:
+        super().__init__()
         self.coins = coins if coins is not None else []
         self.address = address
 

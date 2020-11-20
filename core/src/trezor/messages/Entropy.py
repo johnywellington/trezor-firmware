@@ -18,6 +18,7 @@ class Entropy(p.MessageType):
         *,
         entropy: bytes,
     ) -> None:
+        super().__init__()
         self.entropy = entropy
 
     @classmethod

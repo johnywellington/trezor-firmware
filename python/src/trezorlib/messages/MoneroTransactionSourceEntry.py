@@ -29,6 +29,7 @@ class MoneroTransactionSourceEntry(p.MessageType):
         multisig_kLRki: MoneroMultisigKLRki = None,
         subaddr_minor: int = None,
     ) -> None:
+        super().__init__()
         self.outputs = outputs if outputs is not None else []
         self.real_out_additional_tx_keys = real_out_additional_tx_keys if real_out_additional_tx_keys is not None else []
         self.real_output = real_output

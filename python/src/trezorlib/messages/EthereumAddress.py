@@ -19,6 +19,7 @@ class EthereumAddress(p.MessageType):
         _old_address: bytes = None,
         address: str = None,
     ) -> None:
+        super().__init__()
         self._old_address = _old_address
         self.address = address
 

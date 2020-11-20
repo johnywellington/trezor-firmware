@@ -20,6 +20,7 @@ class MoneroGetTxKeyAck(p.MessageType):
         tx_keys: bytes = None,
         tx_derivations: bytes = None,
     ) -> None:
+        super().__init__()
         self.salt = salt
         self.tx_keys = tx_keys
         self.tx_derivations = tx_derivations

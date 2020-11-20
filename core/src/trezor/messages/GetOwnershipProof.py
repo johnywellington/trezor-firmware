@@ -27,6 +27,7 @@ class GetOwnershipProof(p.MessageType):
         user_confirmation: bool = False,
         commitment_data: bytes = b"",
     ) -> None:
+        super().__init__()
         self.address_n = address_n if address_n is not None else []
         self.ownership_ids = ownership_ids if ownership_ids is not None else []
         self.coin_name = coin_name

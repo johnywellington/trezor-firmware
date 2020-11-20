@@ -18,6 +18,7 @@ class Deprecated_PassphraseStateRequest(p.MessageType):
         *,
         state: bytes = None,
     ) -> None:
+        super().__init__()
         self.state = state
 
     @classmethod

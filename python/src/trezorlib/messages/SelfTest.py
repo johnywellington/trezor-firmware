@@ -18,6 +18,7 @@ class SelfTest(p.MessageType):
         *,
         payload: bytes = None,
     ) -> None:
+        super().__init__()
         self.payload = payload
 
     @classmethod

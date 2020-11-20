@@ -20,6 +20,7 @@ class TxRequestDetailsType(p.MessageType):
         extra_data_len: int = None,
         extra_data_offset: int = None,
     ) -> None:
+        super().__init__()
         self.request_index = request_index
         self.tx_hash = tx_hash
         self.extra_data_len = extra_data_len

@@ -28,6 +28,7 @@ class BinanceOrderMsg(p.MessageType):
         symbol: str = None,
         timeinforce: EnumTypeBinanceTimeInForce = None,
     ) -> None:
+        super().__init__()
         self.id = id
         self.ordertype = ordertype
         self.price = price

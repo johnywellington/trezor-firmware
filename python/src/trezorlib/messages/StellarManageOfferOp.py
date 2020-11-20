@@ -26,6 +26,7 @@ class StellarManageOfferOp(p.MessageType):
         price_d: int = None,
         offer_id: int = None,
     ) -> None:
+        super().__init__()
         self.source_account = source_account
         self.selling_asset = selling_asset
         self.buying_asset = buying_asset

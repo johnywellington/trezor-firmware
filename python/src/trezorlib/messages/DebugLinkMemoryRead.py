@@ -19,6 +19,7 @@ class DebugLinkMemoryRead(p.MessageType):
         address: int = None,
         length: int = None,
     ) -> None:
+        super().__init__()
         self.address = address
         self.length = length
 

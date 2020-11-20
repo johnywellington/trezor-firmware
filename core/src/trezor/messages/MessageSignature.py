@@ -19,6 +19,7 @@ class MessageSignature(p.MessageType):
         address: str = None,
         signature: bytes = None,
     ) -> None:
+        super().__init__()
         self.address = address
         self.signature = signature
 

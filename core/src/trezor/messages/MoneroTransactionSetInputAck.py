@@ -23,6 +23,7 @@ class MoneroTransactionSetInputAck(p.MessageType):
         pseudo_out_alpha: bytes = None,
         spend_key: bytes = None,
     ) -> None:
+        super().__init__()
         self.vini = vini
         self.vini_hmac = vini_hmac
         self.pseudo_out = pseudo_out

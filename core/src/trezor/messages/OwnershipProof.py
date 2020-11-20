@@ -19,6 +19,7 @@ class OwnershipProof(p.MessageType):
         ownership_proof: bytes,
         signature: bytes,
     ) -> None:
+        super().__init__()
         self.ownership_proof = ownership_proof
         self.signature = signature
 

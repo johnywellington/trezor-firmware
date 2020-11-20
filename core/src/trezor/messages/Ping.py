@@ -19,6 +19,7 @@ class Ping(p.MessageType):
         message: str = None,
         button_protection: bool = None,
     ) -> None:
+        super().__init__()
         self.message = message
         self.button_protection = button_protection
 

@@ -22,6 +22,7 @@ class EosActionUndelegate(p.MessageType):
         net_quantity: EosAsset = None,
         cpu_quantity: EosAsset = None,
     ) -> None:
+        super().__init__()
         self.sender = sender
         self.receiver = receiver
         self.net_quantity = net_quantity

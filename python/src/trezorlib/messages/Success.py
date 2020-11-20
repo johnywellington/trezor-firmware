@@ -18,6 +18,7 @@ class Success(p.MessageType):
         *,
         message: str = None,
     ) -> None:
+        super().__init__()
         self.message = message
 
     @classmethod

@@ -25,6 +25,7 @@ class StellarCreatePassiveOfferOp(p.MessageType):
         price_n: int = None,
         price_d: int = None,
     ) -> None:
+        super().__init__()
         self.source_account = source_account
         self.selling_asset = selling_asset
         self.buying_asset = buying_asset

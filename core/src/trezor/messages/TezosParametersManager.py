@@ -21,6 +21,7 @@ class TezosParametersManager(p.MessageType):
         cancel_delegate: bool = None,
         transfer: TezosManagerTransfer = None,
     ) -> None:
+        super().__init__()
         self.set_delegate = set_delegate
         self.cancel_delegate = cancel_delegate
         self.transfer = transfer

@@ -25,6 +25,7 @@ class LiskTransactionAsset(p.MessageType):
         multisignature: LiskMultisignatureType = None,
         data: str = None,
     ) -> None:
+        super().__init__()
         self.votes = votes if votes is not None else []
         self.signature = signature
         self.delegate = delegate

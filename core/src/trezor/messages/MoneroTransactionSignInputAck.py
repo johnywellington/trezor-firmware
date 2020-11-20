@@ -19,6 +19,7 @@ class MoneroTransactionSignInputAck(p.MessageType):
         signature: bytes = None,
         pseudo_out: bytes = None,
     ) -> None:
+        super().__init__()
         self.signature = signature
         self.pseudo_out = pseudo_out
 

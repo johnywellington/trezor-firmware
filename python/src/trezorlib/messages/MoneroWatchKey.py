@@ -19,6 +19,7 @@ class MoneroWatchKey(p.MessageType):
         watch_key: bytes = None,
         address: bytes = None,
     ) -> None:
+        super().__init__()
         self.watch_key = watch_key
         self.address = address
 

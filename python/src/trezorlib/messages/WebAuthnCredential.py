@@ -28,6 +28,7 @@ class WebAuthnCredential(p.MessageType):
         algorithm: int = None,
         curve: int = None,
     ) -> None:
+        super().__init__()
         self.index = index
         self.id = id
         self.rp_id = rp_id

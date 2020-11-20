@@ -30,6 +30,7 @@ class CardanoPoolParametersType(p.MessageType):
         relays: List[CardanoPoolRelayParametersType] = None,
         metadata: CardanoPoolMetadataType = None,
     ) -> None:
+        super().__init__()
         self.owners = owners if owners is not None else []
         self.relays = relays if relays is not None else []
         self.pool_id = pool_id

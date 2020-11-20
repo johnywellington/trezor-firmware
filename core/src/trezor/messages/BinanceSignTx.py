@@ -24,6 +24,7 @@ class BinanceSignTx(p.MessageType):
         sequence: int = None,
         source: int = None,
     ) -> None:
+        super().__init__()
         self.address_n = address_n if address_n is not None else []
         self.msg_count = msg_count
         self.account_number = account_number

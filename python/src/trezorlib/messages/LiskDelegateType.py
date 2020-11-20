@@ -17,6 +17,7 @@ class LiskDelegateType(p.MessageType):
         *,
         username: str = None,
     ) -> None:
+        super().__init__()
         self.username = username
 
     @classmethod

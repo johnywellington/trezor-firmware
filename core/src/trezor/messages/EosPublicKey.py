@@ -19,6 +19,7 @@ class EosPublicKey(p.MessageType):
         wif_public_key: str = None,
         raw_public_key: bytes = None,
     ) -> None:
+        super().__init__()
         self.wif_public_key = wif_public_key
         self.raw_public_key = raw_public_key
 

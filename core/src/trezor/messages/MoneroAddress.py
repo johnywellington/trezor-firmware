@@ -18,6 +18,7 @@ class MoneroAddress(p.MessageType):
         *,
         address: bytes = None,
     ) -> None:
+        super().__init__()
         self.address = address
 
     @classmethod

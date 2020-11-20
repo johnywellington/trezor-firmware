@@ -19,6 +19,7 @@ class TxOutputBinType(p.MessageType):
         script_pubkey: bytes,
         decred_script_version: int = None,
     ) -> None:
+        super().__init__()
         self.amount = amount
         self.script_pubkey = script_pubkey
         self.decred_script_version = decred_script_version

@@ -29,6 +29,7 @@ class StellarSetOptionsOp(p.MessageType):
         signer_key: bytes = None,
         signer_weight: int = None,
     ) -> None:
+        super().__init__()
         self.source_account = source_account
         self.inflation_destination_account = inflation_destination_account
         self.clear_flags = clear_flags

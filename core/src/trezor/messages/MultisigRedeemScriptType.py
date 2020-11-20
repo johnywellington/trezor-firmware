@@ -24,6 +24,7 @@ class MultisigRedeemScriptType(p.MessageType):
         nodes: List[HDNodeType] = None,
         address_n: List[int] = None,
     ) -> None:
+        super().__init__()
         self.pubkeys = pubkeys if pubkeys is not None else []
         self.signatures = signatures if signatures is not None else []
         self.nodes = nodes if nodes is not None else []

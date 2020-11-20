@@ -283,6 +283,7 @@ class Descriptor:
         for field in optional_fields:
             yield f"        {field.name}: {field.py_type} = {field.default_value},"
         yield          "    ) -> None:"
+        yield      "        super().__init__()"
 
         for field in repeated_fields:
             yield f"        self.{field.name} = {field.name} if {field.name} is not None else []"

@@ -24,6 +24,7 @@ class MoneroTransactionSetOutputRequest(p.MessageType):
         rsig_data: MoneroTransactionRsigData = None,
         is_offloaded_bp: bool = None,
     ) -> None:
+        super().__init__()
         self.dst_entr = dst_entr
         self.dst_entr_hmac = dst_entr_hmac
         self.rsig_data = rsig_data

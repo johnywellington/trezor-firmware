@@ -33,6 +33,7 @@ class TxInput(p.MessageType):
         orig_hash: bytes = None,
         orig_index: int = None,
     ) -> None:
+        super().__init__()
         self.address_n = address_n if address_n is not None else []
         self.prev_hash = prev_hash
         self.prev_index = prev_index

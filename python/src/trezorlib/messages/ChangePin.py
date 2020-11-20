@@ -18,6 +18,7 @@ class ChangePin(p.MessageType):
         *,
         remove: bool = None,
     ) -> None:
+        super().__init__()
         self.remove = remove
 
     @classmethod

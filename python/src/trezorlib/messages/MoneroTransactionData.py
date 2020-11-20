@@ -34,6 +34,7 @@ class MoneroTransactionData(p.MessageType):
         hard_fork: int = None,
         monero_version: bytes = None,
     ) -> None:
+        super().__init__()
         self.outputs = outputs if outputs is not None else []
         self.minor_indices = minor_indices if minor_indices is not None else []
         self.integrated_indices = integrated_indices if integrated_indices is not None else []

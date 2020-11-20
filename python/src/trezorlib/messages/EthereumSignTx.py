@@ -27,6 +27,7 @@ class EthereumSignTx(p.MessageType):
         chain_id: int = None,
         tx_type: int = None,
     ) -> None:
+        super().__init__()
         self.address_n = address_n if address_n is not None else []
         self.nonce = nonce
         self.gas_price = gas_price

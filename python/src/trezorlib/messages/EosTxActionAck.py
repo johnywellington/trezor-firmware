@@ -48,6 +48,7 @@ class EosTxActionAck(p.MessageType):
         new_account: EosActionNewAccount = None,
         unknown: EosActionUnknown = None,
     ) -> None:
+        super().__init__()
         self.common = common
         self.transfer = transfer
         self.delegate = delegate

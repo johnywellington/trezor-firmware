@@ -20,6 +20,7 @@ class SignedIdentity(p.MessageType):
         public_key: bytes = None,
         signature: bytes = None,
     ) -> None:
+        super().__init__()
         self.address = address
         self.public_key = public_key
         self.signature = signature

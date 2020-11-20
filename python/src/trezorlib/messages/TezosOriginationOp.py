@@ -27,6 +27,7 @@ class TezosOriginationOp(p.MessageType):
         delegate: bytes = None,
         script: bytes = None,
     ) -> None:
+        super().__init__()
         self.source = source
         self.fee = fee
         self.counter = counter

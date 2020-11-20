@@ -23,6 +23,7 @@ class DebugLinkShowText(p.MessageType):
         header_icon: str = None,
         icon_color: str = None,
     ) -> None:
+        super().__init__()
         self.body_text = body_text if body_text is not None else []
         self.header_text = header_text
         self.header_icon = header_icon

@@ -22,6 +22,7 @@ class CardanoPoolRelayParametersType(p.MessageType):
         host_name: str = None,
         port: int = None,
     ) -> None:
+        super().__init__()
         self.type = type
         self.ipv4_address = ipv4_address
         self.ipv6_address = ipv6_address

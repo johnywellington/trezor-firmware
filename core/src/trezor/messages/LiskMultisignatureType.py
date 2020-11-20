@@ -19,6 +19,7 @@ class LiskMultisignatureType(p.MessageType):
         min: int = None,
         life_time: int = None,
     ) -> None:
+        super().__init__()
         self.keys_group = keys_group if keys_group is not None else []
         self.min = min
         self.life_time = life_time

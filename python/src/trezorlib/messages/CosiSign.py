@@ -21,6 +21,7 @@ class CosiSign(p.MessageType):
         global_commitment: bytes = None,
         global_pubkey: bytes = None,
     ) -> None:
+        super().__init__()
         self.address_n = address_n if address_n is not None else []
         self.data = data
         self.global_commitment = global_commitment

@@ -23,6 +23,7 @@ class MoneroTransactionRsigData(p.MessageType):
         rsig: bytes = None,
         bp_version: int = None,
     ) -> None:
+        super().__init__()
         self.grouping = grouping if grouping is not None else []
         self.rsig_parts = rsig_parts if rsig_parts is not None else []
         self.rsig_type = rsig_type

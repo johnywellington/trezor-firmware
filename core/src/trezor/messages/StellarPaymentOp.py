@@ -23,6 +23,7 @@ class StellarPaymentOp(p.MessageType):
         asset: StellarAssetType = None,
         amount: int = None,
     ) -> None:
+        super().__init__()
         self.source_account = source_account
         self.destination_account = destination_account
         self.asset = asset

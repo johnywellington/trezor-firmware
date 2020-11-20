@@ -22,6 +22,7 @@ class EosTxHeader(p.MessageType):
         max_cpu_usage_ms: int,
         delay_sec: int,
     ) -> None:
+        super().__init__()
         self.expiration = expiration
         self.ref_block_num = ref_block_num
         self.ref_block_prefix = ref_block_prefix

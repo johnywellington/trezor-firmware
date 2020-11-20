@@ -22,6 +22,7 @@ class StellarAllowTrustOp(p.MessageType):
         asset_code: str = None,
         is_authorized: int = None,
     ) -> None:
+        super().__init__()
         self.source_account = source_account
         self.trusted_account = trusted_account
         self.asset_type = asset_type

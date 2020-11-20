@@ -18,6 +18,7 @@ class CardanoPoolOwnerType(p.MessageType):
         staking_key_path: List[int] = None,
         staking_key_hash: bytes = None,
     ) -> None:
+        super().__init__()
         self.staking_key_path = staking_key_path if staking_key_path is not None else []
         self.staking_key_hash = staking_key_hash
 

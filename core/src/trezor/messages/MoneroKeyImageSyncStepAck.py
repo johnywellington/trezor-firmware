@@ -20,6 +20,7 @@ class MoneroKeyImageSyncStepAck(p.MessageType):
         *,
         kis: List[MoneroExportedKeyImage] = None,
     ) -> None:
+        super().__init__()
         self.kis = kis if kis is not None else []
 
     @classmethod

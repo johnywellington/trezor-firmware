@@ -22,6 +22,7 @@ class SignMessage(p.MessageType):
         coin_name: str = "Bitcoin",
         script_type: EnumTypeInputScriptType = 0,
     ) -> None:
+        super().__init__()
         self.address_n = address_n if address_n is not None else []
         self.message = message
         self.coin_name = coin_name

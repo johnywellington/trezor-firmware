@@ -18,6 +18,7 @@ class TezosAddress(p.MessageType):
         *,
         address: str = None,
     ) -> None:
+        super().__init__()
         self.address = address
 
     @classmethod

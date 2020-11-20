@@ -19,6 +19,7 @@ class CosiCommitment(p.MessageType):
         commitment: bytes = None,
         pubkey: bytes = None,
     ) -> None:
+        super().__init__()
         self.commitment = commitment
         self.pubkey = pubkey
 

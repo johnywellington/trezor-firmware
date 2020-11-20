@@ -24,6 +24,7 @@ class GetOwnershipId(p.MessageType):
         multisig: MultisigRedeemScriptType = None,
         script_type: EnumTypeInputScriptType = 0,
     ) -> None:
+        super().__init__()
         self.address_n = address_n if address_n is not None else []
         self.coin_name = coin_name
         self.multisig = multisig

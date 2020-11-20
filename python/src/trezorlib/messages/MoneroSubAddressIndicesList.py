@@ -18,6 +18,7 @@ class MoneroSubAddressIndicesList(p.MessageType):
         minor_indices: List[int] = None,
         account: int = None,
     ) -> None:
+        super().__init__()
         self.minor_indices = minor_indices if minor_indices is not None else []
         self.account = account
 

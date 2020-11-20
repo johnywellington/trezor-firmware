@@ -19,6 +19,7 @@ class TezosProposalOp(p.MessageType):
         source: bytes = None,
         period: int = None,
     ) -> None:
+        super().__init__()
         self.proposals = proposals if proposals is not None else []
         self.source = source
         self.period = period

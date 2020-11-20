@@ -23,6 +23,7 @@ class GetPublicKey(p.MessageType):
         coin_name: str = "Bitcoin",
         script_type: EnumTypeInputScriptType = 0,
     ) -> None:
+        super().__init__()
         self.address_n = address_n if address_n is not None else []
         self.ecdsa_curve_name = ecdsa_curve_name
         self.show_display = show_display

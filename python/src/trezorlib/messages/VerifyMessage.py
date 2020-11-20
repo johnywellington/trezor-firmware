@@ -21,6 +21,7 @@ class VerifyMessage(p.MessageType):
         message: bytes,
         coin_name: str = "Bitcoin",
     ) -> None:
+        super().__init__()
         self.address = address
         self.signature = signature
         self.message = message

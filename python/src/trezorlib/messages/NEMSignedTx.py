@@ -19,6 +19,7 @@ class NEMSignedTx(p.MessageType):
         data: bytes = None,
         signature: bytes = None,
     ) -> None:
+        super().__init__()
         self.data = data
         self.signature = signature
 

@@ -23,6 +23,7 @@ class EosSignTx(p.MessageType):
         header: EosTxHeader = None,
         num_actions: int = None,
     ) -> None:
+        super().__init__()
         self.address_n = address_n if address_n is not None else []
         self.chain_id = chain_id
         self.header = header

@@ -25,6 +25,7 @@ class PrevTx(p.MessageType):
         timestamp: int = None,
         branch_id: int = None,
     ) -> None:
+        super().__init__()
         self.version = version
         self.lock_time = lock_time
         self.inputs_count = inputs_count

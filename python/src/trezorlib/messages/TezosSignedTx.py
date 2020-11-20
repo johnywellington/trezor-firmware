@@ -20,6 +20,7 @@ class TezosSignedTx(p.MessageType):
         sig_op_contents: bytes = None,
         operation_hash: str = None,
     ) -> None:
+        super().__init__()
         self.signature = signature
         self.sig_op_contents = sig_op_contents
         self.operation_hash = operation_hash

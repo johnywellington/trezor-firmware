@@ -24,6 +24,7 @@ class CardanoAddressParametersType(p.MessageType):
         staking_key_hash: bytes = None,
         certificate_pointer: CardanoBlockchainPointerType = None,
     ) -> None:
+        super().__init__()
         self.address_n = address_n if address_n is not None else []
         self.address_n_staking = address_n_staking if address_n_staking is not None else []
         self.address_type = address_type

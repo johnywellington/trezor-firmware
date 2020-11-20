@@ -23,6 +23,7 @@ class MoneroTransactionAllOutSetAck(p.MessageType):
         rv: MoneroRingCtSig = None,
         full_message_hash: bytes = None,
     ) -> None:
+        super().__init__()
         self.extra = extra
         self.tx_prefix_hash = tx_prefix_hash
         self.rv = rv

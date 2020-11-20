@@ -20,6 +20,7 @@ class MoneroMultisigKLRki(p.MessageType):
         R: bytes = None,
         ki: bytes = None,
     ) -> None:
+        super().__init__()
         self.K = K
         self.L = L
         self.R = R

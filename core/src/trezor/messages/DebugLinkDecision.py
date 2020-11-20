@@ -24,6 +24,7 @@ class DebugLinkDecision(p.MessageType):
         y: int = None,
         wait: bool = None,
     ) -> None:
+        super().__init__()
         self.yes_no = yes_no
         self.swipe = swipe
         self.input = input

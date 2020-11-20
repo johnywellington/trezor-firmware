@@ -18,6 +18,7 @@ class ApplyFlags(p.MessageType):
         *,
         flags: int = None,
     ) -> None:
+        super().__init__()
         self.flags = flags
 
     @classmethod

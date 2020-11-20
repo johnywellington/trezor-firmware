@@ -21,6 +21,7 @@ class MoneroTransactionInitAck(p.MessageType):
         hmacs: List[bytes] = None,
         rsig_data: MoneroTransactionRsigData = None,
     ) -> None:
+        super().__init__()
         self.hmacs = hmacs if hmacs is not None else []
         self.rsig_data = rsig_data
 

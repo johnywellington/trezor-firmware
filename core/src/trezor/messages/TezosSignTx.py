@@ -32,6 +32,7 @@ class TezosSignTx(p.MessageType):
         proposal: TezosProposalOp = None,
         ballot: TezosBallotOp = None,
     ) -> None:
+        super().__init__()
         self.address_n = address_n if address_n is not None else []
         self.branch = branch
         self.reveal = reveal

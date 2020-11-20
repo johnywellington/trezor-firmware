@@ -19,6 +19,7 @@ class SdProtect(p.MessageType):
         *,
         operation: EnumTypeSdProtectOperationType = None,
     ) -> None:
+        super().__init__()
         self.operation = operation
 
     @classmethod

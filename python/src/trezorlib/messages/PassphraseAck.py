@@ -20,6 +20,7 @@ class PassphraseAck(p.MessageType):
         _state: bytes = None,
         on_device: bool = None,
     ) -> None:
+        super().__init__()
         self.passphrase = passphrase
         self._state = _state
         self.on_device = on_device

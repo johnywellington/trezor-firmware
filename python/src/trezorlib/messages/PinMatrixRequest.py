@@ -19,6 +19,7 @@ class PinMatrixRequest(p.MessageType):
         *,
         type: EnumTypePinMatrixRequestType = None,
     ) -> None:
+        super().__init__()
         self.type = type
 
     @classmethod

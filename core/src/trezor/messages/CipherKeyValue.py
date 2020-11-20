@@ -24,6 +24,7 @@ class CipherKeyValue(p.MessageType):
         ask_on_decrypt: bool = None,
         iv: bytes = None,
     ) -> None:
+        super().__init__()
         self.address_n = address_n if address_n is not None else []
         self.key = key
         self.value = value

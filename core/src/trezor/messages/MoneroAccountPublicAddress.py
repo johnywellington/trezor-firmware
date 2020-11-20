@@ -18,6 +18,7 @@ class MoneroAccountPublicAddress(p.MessageType):
         spend_public_key: bytes = None,
         view_public_key: bytes = None,
     ) -> None:
+        super().__init__()
         self.spend_public_key = spend_public_key
         self.view_public_key = view_public_key
 

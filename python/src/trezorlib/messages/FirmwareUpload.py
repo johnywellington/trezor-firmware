@@ -19,6 +19,7 @@ class FirmwareUpload(p.MessageType):
         payload: bytes,
         hash: bytes = None,
     ) -> None:
+        super().__init__()
         self.payload = payload
         self.hash = hash
 

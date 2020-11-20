@@ -18,6 +18,7 @@ class PassphraseRequest(p.MessageType):
         *,
         _on_device: bool = None,
     ) -> None:
+        super().__init__()
         self._on_device = _on_device
 
     @classmethod

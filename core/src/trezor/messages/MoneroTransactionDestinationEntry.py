@@ -23,6 +23,7 @@ class MoneroTransactionDestinationEntry(p.MessageType):
         original: bytes = None,
         is_integrated: bool = None,
     ) -> None:
+        super().__init__()
         self.amount = amount
         self.addr = addr
         self.is_subaddress = is_subaddress

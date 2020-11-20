@@ -22,6 +22,7 @@ class MoneroTransactionFinalAck(p.MessageType):
         tx_enc_keys: bytes = None,
         opening_key: bytes = None,
     ) -> None:
+        super().__init__()
         self.cout_key = cout_key
         self.salt = salt
         self.rand_mult = rand_mult

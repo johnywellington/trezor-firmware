@@ -27,6 +27,7 @@ class TxOutputType(p.MessageType):
         orig_hash: bytes = None,
         orig_index: int = None,
     ) -> None:
+        super().__init__()
         self.address_n = address_n if address_n is not None else []
         self.amount = amount
         self.address = address

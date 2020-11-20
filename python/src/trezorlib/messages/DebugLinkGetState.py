@@ -20,6 +20,7 @@ class DebugLinkGetState(p.MessageType):
         wait_word_pos: bool = None,
         wait_layout: bool = None,
     ) -> None:
+        super().__init__()
         self.wait_word_list = wait_word_list
         self.wait_word_pos = wait_word_pos
         self.wait_layout = wait_layout

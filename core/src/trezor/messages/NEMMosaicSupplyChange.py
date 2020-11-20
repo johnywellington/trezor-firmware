@@ -21,6 +21,7 @@ class NEMMosaicSupplyChange(p.MessageType):
         type: EnumTypeNEMSupplyChangeType = None,
         delta: int = None,
     ) -> None:
+        super().__init__()
         self.namespace = namespace
         self.mosaic = mosaic
         self.type = type

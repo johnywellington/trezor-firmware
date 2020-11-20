@@ -19,6 +19,7 @@ class CardanoBlockchainPointerType(p.MessageType):
         tx_index: int = None,
         certificate_index: int = None,
     ) -> None:
+        super().__init__()
         self.block_index = block_index
         self.tx_index = tx_index
         self.certificate_index = certificate_index

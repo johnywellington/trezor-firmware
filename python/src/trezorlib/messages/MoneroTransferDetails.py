@@ -22,6 +22,7 @@ class MoneroTransferDetails(p.MessageType):
         sub_addr_major: int = None,
         sub_addr_minor: int = None,
     ) -> None:
+        super().__init__()
         self.additional_tx_pub_keys = additional_tx_pub_keys if additional_tx_pub_keys is not None else []
         self.out_key = out_key
         self.tx_pub_key = tx_pub_key

@@ -18,6 +18,7 @@ class EosPermissionLevel(p.MessageType):
         actor: int = None,
         permission: int = None,
     ) -> None:
+        super().__init__()
         self.actor = actor
         self.permission = permission
 

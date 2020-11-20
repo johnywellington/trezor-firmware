@@ -20,6 +20,7 @@ class NEMProvisionNamespace(p.MessageType):
         sink: str = None,
         fee: int = None,
     ) -> None:
+        super().__init__()
         self.namespace = namespace
         self.parent = parent
         self.sink = sink

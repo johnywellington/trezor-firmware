@@ -18,6 +18,7 @@ class EntropyAck(p.MessageType):
         *,
         entropy: bytes = None,
     ) -> None:
+        super().__init__()
         self.entropy = entropy
 
     @classmethod

@@ -18,6 +18,7 @@ class LiskPublicKey(p.MessageType):
         *,
         public_key: bytes = None,
     ) -> None:
+        super().__init__()
         self.public_key = public_key
 
     @classmethod

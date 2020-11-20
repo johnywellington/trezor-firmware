@@ -20,6 +20,7 @@ class LiskVerifyMessage(p.MessageType):
         signature: bytes = None,
         message: bytes = None,
     ) -> None:
+        super().__init__()
         self.public_key = public_key
         self.signature = signature
         self.message = message

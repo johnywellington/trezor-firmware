@@ -27,6 +27,7 @@ class SignTx(p.MessageType):
         timestamp: int = None,
         branch_id: int = None,
     ) -> None:
+        super().__init__()
         self.outputs_count = outputs_count
         self.inputs_count = inputs_count
         self.coin_name = coin_name

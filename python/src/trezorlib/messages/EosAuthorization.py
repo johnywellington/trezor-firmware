@@ -24,6 +24,7 @@ class EosAuthorization(p.MessageType):
         waits: List[EosAuthorizationWait] = None,
         threshold: int = None,
     ) -> None:
+        super().__init__()
         self.keys = keys if keys is not None else []
         self.accounts = accounts if accounts is not None else []
         self.waits = waits if waits is not None else []

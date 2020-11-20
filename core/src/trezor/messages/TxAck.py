@@ -20,6 +20,7 @@ class TxAck(p.MessageType):
         *,
         tx: TransactionType = None,
     ) -> None:
+        super().__init__()
         self.tx = tx
 
     @classmethod

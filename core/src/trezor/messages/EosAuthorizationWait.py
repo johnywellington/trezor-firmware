@@ -18,6 +18,7 @@ class EosAuthorizationWait(p.MessageType):
         wait_sec: int = None,
         weight: int = None,
     ) -> None:
+        super().__init__()
         self.wait_sec = wait_sec
         self.weight = weight
 

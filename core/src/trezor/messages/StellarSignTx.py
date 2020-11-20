@@ -29,6 +29,7 @@ class StellarSignTx(p.MessageType):
         memo_hash: bytes = None,
         num_operations: int = None,
     ) -> None:
+        super().__init__()
         self.address_n = address_n if address_n is not None else []
         self.network_passphrase = network_passphrase
         self.source_account = source_account

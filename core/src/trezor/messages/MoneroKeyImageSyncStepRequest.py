@@ -20,6 +20,7 @@ class MoneroKeyImageSyncStepRequest(p.MessageType):
         *,
         tdis: List[MoneroTransferDetails] = None,
     ) -> None:
+        super().__init__()
         self.tdis = tdis if tdis is not None else []
 
     @classmethod

@@ -19,6 +19,7 @@ class CardanoSignedTx(p.MessageType):
         tx_hash: bytes = None,
         serialized_tx: bytes = None,
     ) -> None:
+        super().__init__()
         self.tx_hash = tx_hash
         self.serialized_tx = serialized_tx
 

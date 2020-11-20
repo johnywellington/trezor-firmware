@@ -21,6 +21,7 @@ class EosActionCommon(p.MessageType):
         account: int = None,
         name: int = None,
     ) -> None:
+        super().__init__()
         self.authorization = authorization if authorization is not None else []
         self.account = account
         self.name = name

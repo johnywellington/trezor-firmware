@@ -23,6 +23,7 @@ class CardanoTxCertificateType(p.MessageType):
         pool: bytes = None,
         pool_parameters: CardanoPoolParametersType = None,
     ) -> None:
+        super().__init__()
         self.path = path if path is not None else []
         self.type = type
         self.pool = pool

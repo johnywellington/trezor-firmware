@@ -25,6 +25,7 @@ class AuthorizeCoinJoin(p.MessageType):
         coin_name: str = "Bitcoin",
         script_type: EnumTypeInputScriptType = 0,
     ) -> None:
+        super().__init__()
         self.address_n = address_n if address_n is not None else []
         self.coordinator = coordinator
         self.max_total_fee = max_total_fee

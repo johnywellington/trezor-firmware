@@ -18,6 +18,7 @@ class MoneroRctKeyPublic(p.MessageType):
         dest: bytes = None,
         commitment: bytes = None,
     ) -> None:
+        super().__init__()
         self.dest = dest
         self.commitment = commitment
 

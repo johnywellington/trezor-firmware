@@ -20,6 +20,7 @@ class MoneroTransactionSetInputRequest(p.MessageType):
         *,
         src_entr: MoneroTransactionSourceEntry = None,
     ) -> None:
+        super().__init__()
         self.src_entr = src_entr
 
     @classmethod

@@ -20,6 +20,7 @@ class EosAuthorizationKey(p.MessageType):
         key: bytes = None,
         weight: int = None,
     ) -> None:
+        super().__init__()
         self.address_n = address_n if address_n is not None else []
         self.type = type
         self.key = key

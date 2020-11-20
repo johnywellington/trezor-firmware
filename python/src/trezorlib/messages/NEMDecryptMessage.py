@@ -21,6 +21,7 @@ class NEMDecryptMessage(p.MessageType):
         public_key: bytes = None,
         payload: bytes = None,
     ) -> None:
+        super().__init__()
         self.address_n = address_n if address_n is not None else []
         self.network = network
         self.public_key = public_key

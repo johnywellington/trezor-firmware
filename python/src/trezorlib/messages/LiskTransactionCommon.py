@@ -28,6 +28,7 @@ class LiskTransactionCommon(p.MessageType):
         timestamp: int = None,
         asset: LiskTransactionAsset = None,
     ) -> None:
+        super().__init__()
         self.type = type
         self.amount = amount
         self.fee = fee

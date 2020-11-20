@@ -21,6 +21,7 @@ class TezosBallotOp(p.MessageType):
         proposal: bytes = None,
         ballot: EnumTypeTezosBallotType = None,
     ) -> None:
+        super().__init__()
         self.source = source
         self.period = period
         self.proposal = proposal

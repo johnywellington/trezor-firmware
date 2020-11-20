@@ -26,6 +26,7 @@ class LoadDevice(p.MessageType):
         needs_backup: bool = None,
         no_backup: bool = None,
     ) -> None:
+        super().__init__()
         self.mnemonics = mnemonics if mnemonics is not None else []
         self.pin = pin
         self.passphrase_protection = passphrase_protection

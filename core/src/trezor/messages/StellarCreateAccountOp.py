@@ -20,6 +20,7 @@ class StellarCreateAccountOp(p.MessageType):
         new_account: str = None,
         starting_balance: int = None,
     ) -> None:
+        super().__init__()
         self.source_account = source_account
         self.new_account = new_account
         self.starting_balance = starting_balance

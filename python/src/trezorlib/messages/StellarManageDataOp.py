@@ -20,6 +20,7 @@ class StellarManageDataOp(p.MessageType):
         key: str = None,
         value: bytes = None,
     ) -> None:
+        super().__init__()
         self.source_account = source_account
         self.key = key
         self.value = value

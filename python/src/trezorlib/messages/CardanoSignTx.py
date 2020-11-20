@@ -31,6 +31,7 @@ class CardanoSignTx(p.MessageType):
         network_id: int = None,
         metadata: bytes = None,
     ) -> None:
+        super().__init__()
         self.inputs = inputs if inputs is not None else []
         self.outputs = outputs if outputs is not None else []
         self.certificates = certificates if certificates is not None else []

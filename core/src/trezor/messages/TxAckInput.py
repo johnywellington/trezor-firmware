@@ -20,6 +20,7 @@ class TxAckInput(p.MessageType):
         *,
         tx: TxAckInputWrapper,
     ) -> None:
+        super().__init__()
         self.tx = tx
 
     @classmethod

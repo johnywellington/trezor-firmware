@@ -19,6 +19,7 @@ class TxAckInputWrapper(p.MessageType):
         *,
         input: TxInput,
     ) -> None:
+        super().__init__()
         self.input = input
 
     @classmethod

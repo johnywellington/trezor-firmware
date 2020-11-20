@@ -23,6 +23,7 @@ class CardanoGetAddress(p.MessageType):
         network_id: int = None,
         address_parameters: CardanoAddressParametersType = None,
     ) -> None:
+        super().__init__()
         self.show_display = show_display
         self.protocol_magic = protocol_magic
         self.network_id = network_id

@@ -18,6 +18,7 @@ class CardanoPoolMetadataType(p.MessageType):
         url: str,
         hash: bytes,
     ) -> None:
+        super().__init__()
         self.url = url
         self.hash = hash
 

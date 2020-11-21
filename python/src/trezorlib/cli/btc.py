@@ -27,12 +27,18 @@ INPUT_SCRIPTS = {
     "address": messages.InputScriptType.SPENDADDRESS,
     "segwit": messages.InputScriptType.SPENDWITNESS,
     "p2shsegwit": messages.InputScriptType.SPENDP2SHWITNESS,
+    "pkh": messages.InputScriptType.SPENDADDRESS,
+    "wpkh": messages.InputScriptType.SPENDWITNESS,
+    "sh-wpkh": messages.InputScriptType.SPENDP2SHWITNESS,
 }
 
 OUTPUT_SCRIPTS = {
     "address": messages.OutputScriptType.PAYTOADDRESS,
     "segwit": messages.OutputScriptType.PAYTOWITNESS,
     "p2shsegwit": messages.OutputScriptType.PAYTOP2SHWITNESS,
+    "pkh": messages.OutputScriptType.PAYTOADDRESS,
+    "wpkh": messages.OutputScriptType.PAYTOWITNESS,
+    "sh-wpkh": messages.OutputScriptType.PAYTOP2SHWITNESS,
 }
 
 DEFAULT_COIN = "Bitcoin"
@@ -182,6 +188,27 @@ def get_public_node(client, coin, address, curve, script_type, show_display):
         },
         "xpub": result.xpub,
     }
+
+
+@cli.command()
+@click.option("-c", "--coin")
+@click.option(
+    "-n", "--account", required=True, help="account index (0 = first account)"
+)
+@click.option("-t", "--script-type", type=ChoiceType(INPUT_SCRIPTS), default="address")
+@click.option("-d", "--show-display", is_flag=True)
+@with_client
+def get_descriptor(client, coin, account, script_type, show_display):
+    """Get descriptor of given account."""
+    coin = coin or DEFAULT_COIN
+    result = btc.get_descriptor(
+        client,
+        account,
+        show_display=show_display,
+        coin_name=coin,
+        script_type=script_type,
+    )
+    return result
 
 
 #

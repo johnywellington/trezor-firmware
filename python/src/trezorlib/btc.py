@@ -20,7 +20,7 @@ from decimal import Decimal
 from typing import TYPE_CHECKING, Any, Dict, Sequence, Tuple
 
 from . import exceptions, messages
-from .tools import expect, normalize_nfc, session
+from .tools import expect, normalize_nfc, parse_path, session
 
 if TYPE_CHECKING:
     from .client import TrezorClient
@@ -66,6 +66,7 @@ def get_public_node(
     show_display=False,
     coin_name=None,
     script_type=messages.InputScriptType.SPENDADDRESS,
+    ignore_xpub_magic=False,
 ):
     return client.call(
         messages.GetPublicKey(
@@ -74,8 +75,55 @@ def get_public_node(
             show_display=show_display,
             coin_name=coin_name,
             script_type=script_type,
+            ignore_xpub_magic=ignore_xpub_magic,
         )
     )
+
+
+def get_descriptor(
+    client,
+    account,
+    show_display=False,
+    coin_name=None,
+    script_type=messages.InputScriptType.SPENDADDRESS,
+):
+    if script_type == messages.InputScriptType.SPENDADDRESS:
+        acc_type = 44
+        fmt = "pkh({})"
+    elif script_type == messages.InputScriptType.SPENDP2SHWITNESS:
+        acc_type = 49
+        fmt = "sh(wpkh({}))"
+    elif script_type == messages.InputScriptType.SPENDWITNESS:
+        acc_type = 84
+        fmt = "wpkh({})"
+    else:
+        raise exceptions.TrezorException("Unsupported account type")
+
+    # TODO: correctly lookup SLIP44 for coin provided
+    if coin_name is None or coin_name == "Bitcoin":
+        coin_type = 0
+    elif coin_name == "Testnet":
+        coin_type = 1
+    else:
+        raise exceptions.TrezorException("Unsupported coin")
+
+    path = "m/{}'/{}'/{}'".format(acc_type, coin_type, account)
+    n = parse_path(path)
+    pub = get_public_node(
+        client,
+        n,
+        ecdsa_curve_name=None,
+        show_display=show_display,
+        coin_name=coin_name,
+        script_type=script_type,
+        ignore_xpub_magic=True,
+    )
+
+    fingerprint = pub.root_fingerprint if pub.root_fingerprint is not None else 0
+    external = "[{:08x}{}]{}/0/*".format(fingerprint, path[1:], pub.xpub)
+    internal = "[{:08x}{}]{}/1/*".format(fingerprint, path[1:], pub.xpub)
+
+    return (fmt.format(external), fmt.format(internal))
 
 
 @expect(messages.Address, field="address")

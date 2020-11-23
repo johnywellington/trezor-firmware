@@ -310,9 +310,6 @@ class Layout(Component):
     BACKLIGHT_LEVEL = style.BACKLIGHT_NORMAL
     RENDER_SLEEP = loop.sleep(_RENDER_DELAY_MS)  # type: loop.Syscall
 
-    def __init__(self) -> None:
-        super().__init__()
-
     async def __iter__(self) -> ResultValue:
         """
         Run the layout and wait until it completes.  Returns the result value.

@@ -153,6 +153,8 @@ class MessageType:
         return {}
 
     def __init__(self, **kwargs: Any) -> None:
+        if len(kwargs) > 0:
+            raise ValueError("THIS HERE")
         for kw in kwargs:
             setattr(self, kw, kwargs[kw])
 

@@ -15,7 +15,7 @@ from ..common import SIGHASH_ALL, ecdsa_sign, input_is_external, input_is_segwit
 from ..ownership import verify_nonownership
 from ..verification import SignatureVerifier
 from . import approvers, helpers, progress
-from .hash143 import BitcoinHash143
+from .hash143 import Bip143Hash
 from .tx_info import OriginalTxInfo, TxInfo
 
 if False:
@@ -110,7 +110,7 @@ class Bitcoin:
         return HashWriter(sha256())
 
     def create_hash143(self) -> Hash143:
-        return BitcoinHash143()
+        return Bip143Hash()
 
     async def step1_process_inputs(self) -> None:
         for i in range(self.tx_info.tx.inputs_count):

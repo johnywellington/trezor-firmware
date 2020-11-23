@@ -32,7 +32,7 @@ if False:
 
 
 # BIP-0143 hash
-class BitcoinHash143:
+class Bip143Hash:
     def __init__(self) -> None:
         self.h_prevouts = HashWriter(sha256())
         self.h_sequence = HashWriter(sha256())

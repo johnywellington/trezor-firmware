@@ -23,7 +23,6 @@ class NEMTransfer(p.MessageType):
         payload: bytes = None,
         public_key: bytes = None,
     ) -> None:
-        super().__init__()
         self.mosaics = mosaics if mosaics is not None else []
         self.recipient = recipient
         self.amount = amount

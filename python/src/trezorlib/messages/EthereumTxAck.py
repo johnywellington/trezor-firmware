@@ -18,7 +18,6 @@ class EthereumTxAck(p.MessageType):
         *,
         data_chunk: bytes = None,
     ) -> None:
-        super().__init__()
         self.data_chunk = data_chunk
 
     @classmethod

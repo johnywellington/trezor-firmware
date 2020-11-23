@@ -18,7 +18,6 @@ class CosiSignature(p.MessageType):
         *,
         signature: bytes = None,
     ) -> None:
-        super().__init__()
         self.signature = signature
 
     @classmethod

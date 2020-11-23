@@ -19,7 +19,6 @@ class StellarBumpSequenceOp(p.MessageType):
         source_account: str = None,
         bump_to: int = None,
     ) -> None:
-        super().__init__()
         self.source_account = source_account
         self.bump_to = bump_to
 

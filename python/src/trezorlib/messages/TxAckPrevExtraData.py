@@ -20,7 +20,6 @@ class TxAckPrevExtraData(p.MessageType):
         *,
         tx: TxAckPrevExtraDataWrapper,
     ) -> None:
-        super().__init__()
         self.tx = tx
 
     @classmethod

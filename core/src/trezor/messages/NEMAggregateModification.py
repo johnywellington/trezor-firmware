@@ -20,7 +20,6 @@ class NEMAggregateModification(p.MessageType):
         modifications: List[NEMCosignatoryModification] = None,
         relative_change: int = None,
     ) -> None:
-        super().__init__()
         self.modifications = modifications if modifications is not None else []
         self.relative_change = relative_change
 

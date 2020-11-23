@@ -25,7 +25,6 @@ class RippleSignTx(p.MessageType):
         last_ledger_sequence: int = None,
         payment: RipplePayment = None,
     ) -> None:
-        super().__init__()
         self.address_n = address_n if address_n is not None else []
         self.fee = fee
         self.flags = flags

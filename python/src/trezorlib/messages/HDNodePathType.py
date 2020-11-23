@@ -20,7 +20,6 @@ class HDNodePathType(p.MessageType):
         node: HDNodeType,
         address_n: List[int] = None,
     ) -> None:
-        super().__init__()
         self.address_n = address_n if address_n is not None else []
         self.node = node
 

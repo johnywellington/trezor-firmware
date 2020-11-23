@@ -20,7 +20,6 @@ class DebugLinkLog(p.MessageType):
         bucket: str = None,
         text: str = None,
     ) -> None:
-        super().__init__()
         self.level = level
         self.bucket = bucket
         self.text = text

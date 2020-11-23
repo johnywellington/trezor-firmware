@@ -21,7 +21,6 @@ class CardanoPublicKey(p.MessageType):
         xpub: str = None,
         node: HDNodeType = None,
     ) -> None:
-        super().__init__()
         self.xpub = xpub
         self.node = node
 

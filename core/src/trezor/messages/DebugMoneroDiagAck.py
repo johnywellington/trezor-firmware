@@ -23,7 +23,6 @@ class DebugMoneroDiagAck(p.MessageType):
         data1: bytes = None,
         data2: bytes = None,
     ) -> None:
-        super().__init__()
         self.pd = pd if pd is not None else []
         self.ins = ins
         self.p1 = p1

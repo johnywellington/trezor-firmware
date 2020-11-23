@@ -20,7 +20,6 @@ class DebugLinkMemoryWrite(p.MessageType):
         memory: bytes = None,
         flash: bool = None,
     ) -> None:
-        super().__init__()
         self.address = address
         self.memory = memory
         self.flash = flash

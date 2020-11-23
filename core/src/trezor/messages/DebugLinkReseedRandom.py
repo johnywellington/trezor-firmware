@@ -18,7 +18,6 @@ class DebugLinkReseedRandom(p.MessageType):
         *,
         value: int = None,
     ) -> None:
-        super().__init__()
         self.value = value
 
     @classmethod

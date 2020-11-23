@@ -18,7 +18,6 @@ class EosTxActionRequest(p.MessageType):
         *,
         data_size: int = None,
     ) -> None:
-        super().__init__()
         self.data_size = data_size
 
     @classmethod

@@ -19,7 +19,6 @@ class CosiCommit(p.MessageType):
         address_n: List[int] = None,
         data: bytes = None,
     ) -> None:
-        super().__init__()
         self.address_n = address_n if address_n is not None else []
         self.data = data
 

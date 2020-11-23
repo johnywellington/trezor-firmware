@@ -19,7 +19,6 @@ class WordRequest(p.MessageType):
         *,
         type: EnumTypeWordRequestType = None,
     ) -> None:
-        super().__init__()
         self.type = type
 
     @classmethod

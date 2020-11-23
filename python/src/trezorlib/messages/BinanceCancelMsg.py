@@ -20,7 +20,6 @@ class BinanceCancelMsg(p.MessageType):
         sender: str = None,
         symbol: str = None,
     ) -> None:
-        super().__init__()
         self.refid = refid
         self.sender = sender
         self.symbol = symbol

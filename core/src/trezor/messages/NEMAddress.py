@@ -18,7 +18,6 @@ class NEMAddress(p.MessageType):
         *,
         address: str,
     ) -> None:
-        super().__init__()
         self.address = address
 
     @classmethod

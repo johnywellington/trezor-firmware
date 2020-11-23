@@ -21,7 +21,6 @@ class NEMMosaicCreation(p.MessageType):
         sink: str = None,
         fee: int = None,
     ) -> None:
-        super().__init__()
         self.definition = definition
         self.sink = sink
         self.fee = fee

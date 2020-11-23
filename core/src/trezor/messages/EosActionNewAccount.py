@@ -22,7 +22,6 @@ class EosActionNewAccount(p.MessageType):
         owner: EosAuthorization = None,
         active: EosAuthorization = None,
     ) -> None:
-        super().__init__()
         self.creator = creator
         self.name = name
         self.owner = owner

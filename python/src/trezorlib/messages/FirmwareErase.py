@@ -18,7 +18,6 @@ class FirmwareErase(p.MessageType):
         *,
         length: int = None,
     ) -> None:
-        super().__init__()
         self.length = length
 
     @classmethod

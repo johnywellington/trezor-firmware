@@ -24,7 +24,6 @@ class MoneroKeyImageExportInitRequest(p.MessageType):
         hash: bytes = None,
         network_type: int = None,
     ) -> None:
-        super().__init__()
         self.address_n = address_n if address_n is not None else []
         self.subs = subs if subs is not None else []
         self.num = num

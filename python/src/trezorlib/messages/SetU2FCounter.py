@@ -18,7 +18,6 @@ class SetU2FCounter(p.MessageType):
         *,
         u2f_counter: int = None,
     ) -> None:
-        super().__init__()
         self.u2f_counter = u2f_counter
 
     @classmethod

@@ -20,7 +20,6 @@ class EthereumVerifyMessage(p.MessageType):
         message: bytes = None,
         address: str = None,
     ) -> None:
-        super().__init__()
         self.signature = signature
         self.message = message
         self.address = address

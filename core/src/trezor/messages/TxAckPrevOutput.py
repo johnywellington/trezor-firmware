@@ -20,7 +20,6 @@ class TxAckPrevOutput(p.MessageType):
         *,
         tx: TxAckPrevOutputWrapper,
     ) -> None:
-        super().__init__()
         self.tx = tx
 
     @classmethod

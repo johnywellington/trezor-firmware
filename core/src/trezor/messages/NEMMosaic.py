@@ -19,7 +19,6 @@ class NEMMosaic(p.MessageType):
         mosaic: str = None,
         quantity: int = None,
     ) -> None:
-        super().__init__()
         self.namespace = namespace
         self.mosaic = mosaic
         self.quantity = quantity

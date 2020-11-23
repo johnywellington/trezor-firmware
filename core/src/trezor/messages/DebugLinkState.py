@@ -32,7 +32,6 @@ class DebugLinkState(p.MessageType):
         reset_word_pos: int = None,
         mnemonic_type: int = None,
     ) -> None:
-        super().__init__()
         self.layout_lines = layout_lines if layout_lines is not None else []
         self.layout = layout
         self.pin = pin

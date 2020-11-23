@@ -27,7 +27,6 @@ class ApplySettings(p.MessageType):
         safety_checks: EnumTypeSafetyCheckLevel = None,
         experimental_features: bool = None,
     ) -> None:
-        super().__init__()
         self.language = language
         self.label = label
         self.use_passphrase = use_passphrase

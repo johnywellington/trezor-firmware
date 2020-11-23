@@ -21,7 +21,6 @@ class BinanceTransferMsg(p.MessageType):
         inputs: List[BinanceInputOutput] = None,
         outputs: List[BinanceInputOutput] = None,
     ) -> None:
-        super().__init__()
         self.inputs = inputs if inputs is not None else []
         self.outputs = outputs if outputs is not None else []
 

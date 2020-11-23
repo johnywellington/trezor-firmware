@@ -20,7 +20,6 @@ class MoneroOutputEntry(p.MessageType):
         idx: int = None,
         key: MoneroRctKeyPublic = None,
     ) -> None:
-        super().__init__()
         self.idx = idx
         self.key = key
 

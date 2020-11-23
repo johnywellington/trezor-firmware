@@ -18,7 +18,6 @@ class MoneroKeyImageSyncFinalAck(p.MessageType):
         *,
         enc_key: bytes = None,
     ) -> None:
-        super().__init__()
         self.enc_key = enc_key
 
     @classmethod

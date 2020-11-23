@@ -19,7 +19,6 @@ class FirmwareRequest(p.MessageType):
         offset: int = None,
         length: int = None,
     ) -> None:
-        super().__init__()
         self.offset = offset
         self.length = length
 

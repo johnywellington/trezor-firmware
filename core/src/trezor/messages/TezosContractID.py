@@ -19,7 +19,6 @@ class TezosContractID(p.MessageType):
         tag: EnumTypeTezosContractType = None,
         hash: bytes = None,
     ) -> None:
-        super().__init__()
         self.tag = tag
         self.hash = hash
 

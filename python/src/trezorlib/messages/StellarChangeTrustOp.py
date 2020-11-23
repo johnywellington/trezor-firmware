@@ -22,7 +22,6 @@ class StellarChangeTrustOp(p.MessageType):
         asset: StellarAssetType = None,
         limit: int = None,
     ) -> None:
-        super().__init__()
         self.source_account = source_account
         self.asset = asset
         self.limit = limit

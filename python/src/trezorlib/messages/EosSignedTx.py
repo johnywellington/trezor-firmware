@@ -18,7 +18,6 @@ class EosSignedTx(p.MessageType):
         *,
         signature: str = None,
     ) -> None:
-        super().__init__()
         self.signature = signature
 
     @classmethod

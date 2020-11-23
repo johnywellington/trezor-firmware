@@ -20,7 +20,6 @@ class TxAckPrevMeta(p.MessageType):
         *,
         tx: PrevTx,
     ) -> None:
-        super().__init__()
         self.tx = tx
 
     @classmethod

@@ -17,7 +17,6 @@ class EosActionRefund(p.MessageType):
         *,
         owner: int = None,
     ) -> None:
-        super().__init__()
         self.owner = owner
 
     @classmethod

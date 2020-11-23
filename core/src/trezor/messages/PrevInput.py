@@ -21,7 +21,6 @@ class PrevInput(p.MessageType):
         sequence: int,
         decred_tree: int = None,
     ) -> None:
-        super().__init__()
         self.prev_hash = prev_hash
         self.prev_index = prev_index
         self.script_sig = script_sig

@@ -21,7 +21,6 @@ class CardanoTxOutputType(p.MessageType):
         amount: int = None,
         address_parameters: CardanoAddressParametersType = None,
     ) -> None:
-        super().__init__()
         self.address = address
         self.amount = amount
         self.address_parameters = address_parameters

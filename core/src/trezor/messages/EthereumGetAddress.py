@@ -19,7 +19,6 @@ class EthereumGetAddress(p.MessageType):
         address_n: List[int] = None,
         show_display: bool = None,
     ) -> None:
-        super().__init__()
         self.address_n = address_n if address_n is not None else []
         self.show_display = show_display
 

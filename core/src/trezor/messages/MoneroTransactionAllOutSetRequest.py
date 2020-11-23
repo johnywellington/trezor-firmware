@@ -20,7 +20,6 @@ class MoneroTransactionAllOutSetRequest(p.MessageType):
         *,
         rsig_data: MoneroTransactionRsigData = None,
     ) -> None:
-        super().__init__()
         self.rsig_data = rsig_data
 
     @classmethod

@@ -18,7 +18,6 @@ class CardanoTxWithdrawalType(p.MessageType):
         path: List[int] = None,
         amount: int = None,
     ) -> None:
-        super().__init__()
         self.path = path if path is not None else []
         self.amount = amount
 

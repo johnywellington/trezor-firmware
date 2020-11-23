@@ -19,7 +19,6 @@ class EosActionUnlinkAuth(p.MessageType):
         code: int = None,
         type: int = None,
     ) -> None:
-        super().__init__()
         self.account = account
         self.code = code
         self.type = type

@@ -18,7 +18,6 @@ class EosActionSellRam(p.MessageType):
         account: int = None,
         bytes: int = None,
     ) -> None:
-        super().__init__()
         self.account = account
         self.bytes = bytes
 

@@ -32,7 +32,6 @@ class NEMMosaicDefinition(p.MessageType):
         transferable: bool = None,
         description: str = None,
     ) -> None:
-        super().__init__()
         self.networks = networks if networks is not None else []
         self.name = name
         self.ticker = ticker

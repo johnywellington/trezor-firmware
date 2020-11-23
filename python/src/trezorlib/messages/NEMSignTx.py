@@ -34,7 +34,6 @@ class NEMSignTx(p.MessageType):
         aggregate_modification: NEMAggregateModification = None,
         importance_transfer: NEMImportanceTransfer = None,
     ) -> None:
-        super().__init__()
         self.transaction = transaction
         self.multisig = multisig
         self.transfer = transfer

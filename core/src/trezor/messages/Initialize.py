@@ -18,7 +18,6 @@ class Initialize(p.MessageType):
         *,
         session_id: bytes = None,
     ) -> None:
-        super().__init__()
         self.session_id = session_id
 
     @classmethod

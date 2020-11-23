@@ -22,7 +22,6 @@ class IdentityType(p.MessageType):
         path: str = None,
         index: int = 0,
     ) -> None:
-        super().__init__()
         self.proto = proto
         self.user = user
         self.host = host

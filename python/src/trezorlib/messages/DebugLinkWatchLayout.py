@@ -18,7 +18,6 @@ class DebugLinkWatchLayout(p.MessageType):
         *,
         watch: bool = None,
     ) -> None:
-        super().__init__()
         self.watch = watch
 
     @classmethod

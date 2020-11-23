@@ -18,7 +18,6 @@ class ECDHSessionKey(p.MessageType):
         *,
         session_key: bytes = None,
     ) -> None:
-        super().__init__()
         self.session_key = session_key
 
     @classmethod

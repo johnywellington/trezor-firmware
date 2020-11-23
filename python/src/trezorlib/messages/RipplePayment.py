@@ -19,7 +19,6 @@ class RipplePayment(p.MessageType):
         destination: str = None,
         destination_tag: int = None,
     ) -> None:
-        super().__init__()
         self.amount = amount
         self.destination = destination
         self.destination_tag = destination_tag

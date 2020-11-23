@@ -22,7 +22,6 @@ class HDNodeType(p.MessageType):
         public_key: bytes,
         private_key: bytes = None,
     ) -> None:
-        super().__init__()
         self.depth = depth
         self.fingerprint = fingerprint
         self.child_num = child_num

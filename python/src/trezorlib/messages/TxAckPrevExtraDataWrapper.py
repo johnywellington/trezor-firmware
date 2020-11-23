@@ -17,7 +17,6 @@ class TxAckPrevExtraDataWrapper(p.MessageType):
         *,
         extra_data_chunk: bytes,
     ) -> None:
-        super().__init__()
         self.extra_data_chunk = extra_data_chunk
 
     @classmethod

@@ -18,7 +18,6 @@ class PinMatrixAck(p.MessageType):
         *,
         pin: str,
     ) -> None:
-        super().__init__()
         self.pin = pin
 
     @classmethod

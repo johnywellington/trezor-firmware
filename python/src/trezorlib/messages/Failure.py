@@ -20,7 +20,6 @@ class Failure(p.MessageType):
         code: EnumTypeFailureType = None,
         message: str = None,
     ) -> None:
-        super().__init__()
         self.code = code
         self.message = message
 

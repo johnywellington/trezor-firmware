@@ -18,7 +18,6 @@ class WordAck(p.MessageType):
         *,
         word: str,
     ) -> None:
-        super().__init__()
         self.word = word
 
     @classmethod

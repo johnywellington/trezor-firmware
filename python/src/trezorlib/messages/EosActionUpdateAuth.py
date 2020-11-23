@@ -22,7 +22,6 @@ class EosActionUpdateAuth(p.MessageType):
         parent: int = None,
         auth: EosAuthorization = None,
     ) -> None:
-        super().__init__()
         self.account = account
         self.permission = permission
         self.parent = parent

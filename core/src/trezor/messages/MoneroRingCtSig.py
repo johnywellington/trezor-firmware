@@ -19,7 +19,6 @@ class MoneroRingCtSig(p.MessageType):
         message: bytes = None,
         rv_type: int = None,
     ) -> None:
-        super().__init__()
         self.txn_fee = txn_fee
         self.message = message
         self.rv_type = rv_type

@@ -22,7 +22,6 @@ class TezosDelegationOp(p.MessageType):
         storage_limit: int = None,
         delegate: bytes = None,
     ) -> None:
-        super().__init__()
         self.source = source
         self.fee = fee
         self.counter = counter

@@ -19,7 +19,6 @@ class TxAckOutputWrapper(p.MessageType):
         *,
         output: TxOutput,
     ) -> None:
-        super().__init__()
         self.output = output
 
     @classmethod

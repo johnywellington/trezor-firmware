@@ -21,7 +21,6 @@ class PublicKey(p.MessageType):
         node: HDNodeType = None,
         xpub: str = None,
     ) -> None:
-        super().__init__()
         self.node = node
         self.xpub = xpub
 

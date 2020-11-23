@@ -18,7 +18,6 @@ class LiskAddress(p.MessageType):
         *,
         address: str = None,
     ) -> None:
-        super().__init__()
         self.address = address
 
     @classmethod

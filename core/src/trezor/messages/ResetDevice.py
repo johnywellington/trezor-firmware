@@ -28,7 +28,6 @@ class ResetDevice(p.MessageType):
         no_backup: bool = None,
         backup_type: EnumTypeBackupType = 0,
     ) -> None:
-        super().__init__()
         self.display_random = display_random
         self.strength = strength
         self.passphrase_protection = passphrase_protection

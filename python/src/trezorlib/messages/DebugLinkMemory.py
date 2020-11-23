@@ -18,7 +18,6 @@ class DebugLinkMemory(p.MessageType):
         *,
         memory: bytes = None,
     ) -> None:
-        super().__init__()
         self.memory = memory
 
     @classmethod

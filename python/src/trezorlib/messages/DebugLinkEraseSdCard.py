@@ -18,7 +18,6 @@ class DebugLinkEraseSdCard(p.MessageType):
         *,
         format: bool = None,
     ) -> None:
-        super().__init__()
         self.format = format
 
     @classmethod

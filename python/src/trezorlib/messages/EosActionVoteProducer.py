@@ -19,7 +19,6 @@ class EosActionVoteProducer(p.MessageType):
         voter: int = None,
         proxy: int = None,
     ) -> None:
-        super().__init__()
         self.producers = producers if producers is not None else []
         self.voter = voter
         self.proxy = proxy

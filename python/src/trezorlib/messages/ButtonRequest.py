@@ -19,7 +19,6 @@ class ButtonRequest(p.MessageType):
         *,
         code: EnumTypeButtonRequestType = None,
     ) -> None:
-        super().__init__()
         self.code = code
 
     @classmethod

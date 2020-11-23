@@ -19,7 +19,6 @@ class RippleSignedTx(p.MessageType):
         signature: bytes = None,
         serialized_tx: bytes = None,
     ) -> None:
-        super().__init__()
         self.signature = signature
         self.serialized_tx = serialized_tx
 

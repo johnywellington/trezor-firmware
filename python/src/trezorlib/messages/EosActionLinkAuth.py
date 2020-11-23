@@ -20,7 +20,6 @@ class EosActionLinkAuth(p.MessageType):
         type: int = None,
         requirement: int = None,
     ) -> None:
-        super().__init__()
         self.account = account
         self.code = code
         self.type = type

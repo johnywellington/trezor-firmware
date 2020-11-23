@@ -20,7 +20,6 @@ class EosAuthorizationAccount(p.MessageType):
         account: EosPermissionLevel = None,
         weight: int = None,
     ) -> None:
-        super().__init__()
         self.account = account
         self.weight = weight
 

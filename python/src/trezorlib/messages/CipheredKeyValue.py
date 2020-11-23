@@ -18,7 +18,6 @@ class CipheredKeyValue(p.MessageType):
         *,
         value: bytes = None,
     ) -> None:
-        super().__init__()
         self.value = value
 
     @classmethod

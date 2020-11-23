@@ -18,7 +18,6 @@ class TezosPublicKey(p.MessageType):
         *,
         public_key: str = None,
     ) -> None:
-        super().__init__()
         self.public_key = public_key
 
     @classmethod

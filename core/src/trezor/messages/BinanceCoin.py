@@ -18,7 +18,6 @@ class BinanceCoin(p.MessageType):
         amount: int = None,
         denom: str = None,
     ) -> None:
-        super().__init__()
         self.amount = amount
         self.denom = denom
 

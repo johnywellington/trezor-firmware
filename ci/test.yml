@@ -13,10 +13,15 @@ hardware core btconly device test:
     - tpmb
   needs:
     - core fw btconly debug build
+  variables:
+    TREZOR_PYTEST_SKIP_ALTCOINS: 1
+    PYTEST_TIMEOUT: "1200"
   script:
     - cd ci/hardware_tests
+#    - nix-shell --run "./record_video.sh ${CI_COMMIT_SHORT_SHA} start"
     - nix-shell --run "cd ../.. && poetry install"
     - nix-shell --run "mkdir out"
+#    - nix-shell --run "kill 12314 || true" # ffmpeg
     - nix-shell --run "ps auxf | tee out/ps.txt"
     - nix-shell --run "lsof | grep -i usb | tee out/lsof.txt || true"
     - nix-shell --run "lsof -t +d /dev/bus/usb/003 || true"
@@ -28,12 +33,15 @@ hardware core btconly device test:
     - export TREZOR_PATH=$(./get_trezor_path.sh 'Trezor T')
     - nix-shell --run "echo $TREZOR_PATH"
     - nix-shell --run "poetry run python bootstrap.py tt ../../trezor-*.bin"
-    - nix-shell --run "poetry run timeout 10m pytest -x -v -v ../../tests/device_tests"
-  timeout: 20m
+    - nix-shell --run "poetry run timeout 4h pytest -x -v ../../tests/device_tests -m 'not sd_card' -k 'not test_softlock_instability and not 15_of_15'"
+#  after_script:
+#    - nix-shell --run "./record_video.sh ${CI_COMMIT_SHORT_SHA} stop"
+  timeout: 4h
   artifacts:
     name: "$CI_JOB_NAME-$CI_COMMIT_SHORT_SHA"
     paths:
       - ci/hardware_tests/out/*
+      - ci/hardware_tests/video*.mp4
     expire_in: 2 days
     when: always
 

@@ -294,6 +294,7 @@ class TrezorClient:
             self.session_id = session_id
 
         resp = self.call_raw(messages.Initialize(session_id=self.session_id))
+        print(resp)
         if not isinstance(resp, messages.Features):
             raise exceptions.TrezorException("Unexpected response to Initialize")
 

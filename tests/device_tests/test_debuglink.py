@@ -63,7 +63,9 @@ def test_softlock_instability(client):
         )
 
     # start from a clean slate:
-    client.debug.reseed(0)
+    resp = client.debug.reseed(0)
+    if isinstance(resp, messages.Failure):
+        pytest.skip("reseed only supported on emulator")
     device.wipe(client)
     entropy_after_wipe = misc.get_entropy(client, 16)
 

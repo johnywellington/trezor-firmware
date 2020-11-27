@@ -16,26 +16,25 @@ hardware core btconly device test:
   variables:
     TREZOR_PYTEST_SKIP_ALTCOINS: 1
     PYTEST_TIMEOUT: "1200"
+    LIBUSB_DEBUG: "4"
   script:
     - cd ci/hardware_tests
 #    - nix-shell --run "./record_video.sh ${CI_COMMIT_SHORT_SHA} start"
     - nix-shell --run "cd ../.. && poetry install"
     - nix-shell --run "mkdir out"
-#    - nix-shell --run "kill 12314 || true" # ffmpeg
-    - nix-shell --run "ps auxf | tee out/ps.txt"
-    - nix-shell --run "lsof | grep -i usb | tee out/lsof.txt || true"
-    - nix-shell --run "lsof -t +d /dev/bus/usb/003 || true"
-    - nix-shell --run "lsof -t +d /dev/bus/usb/003 | xargs kill || true"
-    - nix-shell --run "poetry run ps auxf | tee out/ps.txt"
-    - nix-shell --run "poetry run lsof | grep -i usb | tee out/lsof.txt || true"
+    - nix-shell --run "./traceusb.sh /dev/bus/usb/003 |& tee -a out/traceusb.txt"
 #    - nix-shell --run "poetry run timeout 11 strace -f -p20869 | tee out/strace.txt"
     - nix-shell --run "poetry run trezorctl list"
+    - nix-shell --run "./traceusb.sh /dev/bus/usb/003 |& tee -a out/traceusb.txt"
     - export TREZOR_PATH=$(./get_trezor_path.sh 'Trezor T')
     - nix-shell --run "echo $TREZOR_PATH"
+    - nix-shell --run "./traceusb.sh /dev/bus/usb/003 |& tee -a out/traceusb.txt"
     - nix-shell --run "poetry run python bootstrap.py tt ../../trezor-*.bin"
+    - nix-shell --run "./traceusb.sh /dev/bus/usb/003 |& tee -a out/traceusb.txt"
     - nix-shell --run "poetry run timeout 4h pytest -x -v ../../tests/device_tests -m 'not sd_card' -k 'not test_softlock_instability and not 15_of_15'"
-#  after_script:
-#    - nix-shell --run "./record_video.sh ${CI_COMMIT_SHORT_SHA} stop"
+    - nix-shell --run "./traceusb.sh /dev/bus/usb/003 |& tee -a out/traceusb.txt"
+  after_script:
+    - echo after
   timeout: 4h
   artifacts:
     name: "$CI_JOB_NAME-$CI_COMMIT_SHORT_SHA"
@@ -45,64 +44,86 @@ hardware core btconly device test:
     expire_in: 2 days
     when: always
 
-#hardware legacy regular device test:
-#  stage: test
+hardware legacy regular device test:
+  stage: test
+  variables:
+    LIBUSB_DEBUG: "4"
 #  only:
 #    - schedules  # nightly build
 #    - /^legacy\//
 #    - /^release\//
 #    - /^secfix\//
 #    - /^hw\//
-#  tags:
-#    - tpmb
-#  needs:
-#    - legacy fw regular debug build
-#  script:
-#    - cd ci/hardware_tests
+  tags:
+    - tpmb
+  needs:
+    - legacy fw regular debug build
+  script:
+    - cd ci/hardware_tests
 #    - nix-shell --run "./record_video.sh ${CI_COMMIT_SHORT_SHA} start"
-#    - nix-shell --run "cd ../.. && poetry install"
-#    - nix-shell --run "poetry run trezorctl list"
-#    - export TREZOR_PATH=$(./get_trezor_path.sh 'Trezor 1')
-#    - nix-shell --run "echo $TREZOR_PATH"
-#    - nix-shell --run "poetry run python bootstrap.py t1"
-#    - nix-shell --run "poetry run python bootstrap.py t1 ../../trezor-*.bin"
-#    - nix-shell --run "poetry run pytest ../../tests/device_tests"
+    - nix-shell --run "cd ../.. && poetry install"
+    - nix-shell --run "mkdir out"
+    - nix-shell --run "./traceusb.sh /dev/bus/usb/003 |& tee -a out/traceusb.txt"
+    - nix-shell --run "poetry run strace -f trezorctl list"
+    - nix-shell --run "./traceusb.sh /dev/bus/usb/003 |& tee -a out/traceusb.txt"
+    - export TREZOR_PATH=$(./get_trezor_path.sh 'Trezor 1')
+    - nix-shell --run "echo $TREZOR_PATH"
+    - nix-shell --run "./traceusb.sh /dev/bus/usb/003 |& tee -a out/traceusb.txt"
+    - nix-shell --run "poetry run python bootstrap.py t1"
+    - nix-shell --run "./traceusb.sh /dev/bus/usb/003 |& tee -a out/traceusb.txt"
+    - nix-shell --run "poetry run python bootstrap.py t1 ../../trezor-*.bin"
+    - nix-shell --run "./traceusb.sh /dev/bus/usb/003 |& tee -a out/traceusb.txt"
+    - nix-shell --run "poetry run timeout 2h  pytest -x ../../tests/device_tests"
+    - nix-shell --run "./traceusb.sh /dev/bus/usb/003 |& tee -a out/traceusb.txt"
 #    - nix-shell --run "./record_video.sh ${CI_COMMIT_SHORT_SHA} stop"
-#  artifacts:
-#    name: "$CI_JOB_NAME-$CI_COMMIT_SHORT_SHA"
-#    paths:
-#      - ci/hardware_tests/video*.mp4
-#    expire_in: 2 days
-#    when: always
-#
-#hardware legacy btconly device test:
-#  stage: test
-#  variables:
-#    TREZOR_PYTEST_SKIP_ALTCOINS: 1
+  after_script:
+    - echo after
+  artifacts:
+    name: "$CI_JOB_NAME-$CI_COMMIT_SHORT_SHA"
+    paths:
+      - ci/hardware_tests/out/*
+      - ci/hardware_tests/video*.mp4
+    expire_in: 2 days
+    when: always
+
+hardware legacy btconly device test:
+  stage: test
+  variables:
+    TREZOR_PYTEST_SKIP_ALTCOINS: 1
+    LIBUSB_DEBUG: "4"
 #  only:
 #    - schedules  # nightly build
 #    - /^legacy\//
 #    - /^release\//
 #    - /^secfix\//
 #    - /^hw\//
-#  tags:
-#    - tpmb
-#  needs:
-#    - legacy fw btconly debug build
-#  script:
-#    - cd ci/hardware_tests
+  tags:
+    - tpmb
+  needs:
+    - legacy fw btconly debug build
+  script:
+    - cd ci/hardware_tests
 #    - nix-shell --run "./record_video.sh ${CI_COMMIT_SHORT_SHA} start"
-#    - nix-shell --run "cd ../.. && poetry install"
-#    - nix-shell --run "poetry run trezorctl list"
-#    - export TREZOR_PATH=$(./get_trezor_path.sh 'Trezor 1')
-#    - nix-shell --run "echo $TREZOR_PATH"
-#    - nix-shell --run "poetry run python bootstrap.py t1"
-#    - nix-shell --run "poetry run python bootstrap.py t1 ../../trezor-*.bin"
-#    - nix-shell --run "poetry run pytest ../../tests/device_tests"
+    - nix-shell --run "cd ../.. && poetry install"
+    - nix-shell --run "mkdir out"
+    - nix-shell --run "./traceusb.sh /dev/bus/usb/003 |& tee -a out/traceusb.txt"
+    - nix-shell --run "poetry run trezorctl list"
+    - export TREZOR_PATH=$(./get_trezor_path.sh 'Trezor 1')
+    - nix-shell --run "echo $TREZOR_PATH"
+    - nix-shell --run "./traceusb.sh /dev/bus/usb/003 |& tee -a out/traceusb.txt"
+    - nix-shell --run "poetry run python bootstrap.py t1"
+    - nix-shell --run "./traceusb.sh /dev/bus/usb/003 |& tee -a out/traceusb.txt"
+    - nix-shell --run "poetry run python bootstrap.py t1 ../../trezor-*.bin"
+    - nix-shell --run "./traceusb.sh /dev/bus/usb/003 |& tee -a out/traceusb.txt"
+    - nix-shell --run "poetry run timeout 4h pytest -v ../../tests/device_tests"
+    - nix-shell --run "./traceusb.sh /dev/bus/usb/003 |& tee -a out/traceusb.txt"
 #    - nix-shell --run "./record_video.sh ${CI_COMMIT_SHORT_SHA} stop"
-#  artifacts:
-#    name: "$CI_JOB_NAME-$CI_COMMIT_SHORT_SHA"
-#    paths:
-#      - ci/hardware_tests/video*.mp4
-#    expire_in: 2 days
-#    when: always
+  after_script:
+    - echo after
+  artifacts:
+    name: "$CI_JOB_NAME-$CI_COMMIT_SHORT_SHA"
+    paths:
+      - ci/hardware_tests/out/*
+      - ci/hardware_tests/video*.mp4
+    expire_in: 2 days
+    when: always
